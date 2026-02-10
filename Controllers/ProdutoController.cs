@@ -25,15 +25,22 @@ namespace agicommerce_api.Controllers
         }
        
         [HttpPost]
-        public async Task<IActionResult> CriarProduto(Produto produto)
+        public async Task<IActionResult> PostProduto(Produto produto)
         {
-
-            return Ok(await this._produtoService.criar_produto(produto));
+            await this._produtoService.criar_produto(produto);
+            return Ok("Produto criado com sucesso!");
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> AtualizarProduto(Guid id, Produto produto)
+        public async Task<IActionResult> PutProduto(Guid id, Produto produto)
         {
-            return Ok(await this._produtoService.atualizar_produto(id, produto));
+            await this._produtoService.atualizar_produto(id, produto);
+            return Ok("Atualizado com sucesso!");
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduto(Guid id)
+        {   
+            await this._produtoService.deletar_produto(id);
+            return Ok("Deletado com sucesso!");  
         }
         
     

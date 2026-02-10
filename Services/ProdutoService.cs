@@ -46,6 +46,17 @@ namespace agicommerce_api.Services
             await _database.SaveChangesAsync();
             return produto;
         }
+        public async Task<bool> deletar_produto(Guid id)
+        {
+            var produto = await _database.Produtos.FirstOrDefaultAsync(p => p.Id == id);
+            if (produto == null)
+            {
+                throw new KeyNotFoundException("Produto não encontrado!");
+            }
+            _database.Produtos.Remove(produto);
+            await _database.SaveChangesAsync();
+            return true;
+        }
        
         
     }
