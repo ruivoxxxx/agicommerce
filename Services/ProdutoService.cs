@@ -18,11 +18,22 @@ namespace agicommerce_api.Services
             return await _database.Produtos.ToListAsync();
         }
         
+        public async Task<Produto> listar_produto_por_id(Guid id)
+        {
+            var produto = await _database.Produtos.FirstOrDefaultAsync(p => p.Id == id);
+            if (produto == null)
+            {
+                throw new  KeyNotFoundException("Produto não encontrado!");
+            }
+            return produto;
+        }
         public async Task<Produto> criar_produto(Produto produto)
         {
             _database.Produtos.Add(produto);
             await _database.SaveChangesAsync();
             return produto;
         }
+       
+        
     }
 }

@@ -18,6 +18,11 @@ namespace agicommerce_api.Controllers
         {
             return Ok(await this._produtoService.listar_produtos());
         }
+         [HttpGet("{id}")]
+        public async Task<IActionResult> GetProdutoById(Guid id)
+        {
+            return Ok(await this._produtoService.listar_produto_por_id(id));
+        }
        
         [HttpPost]
         public async Task<IActionResult> CriarProduto(Produto produto)
@@ -27,5 +32,6 @@ namespace agicommerce_api.Controllers
         }
         
         
-    }
+    
+}
 }
