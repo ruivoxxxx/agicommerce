@@ -16,8 +16,16 @@ namespace agicommerce_api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProdutos()
         {
-            var produtos = await _produtoService.ListaProdutos();
-            return Ok(produtos);
+            return Ok(await this._produtoService.listar_produtos());
         }
+       
+        [HttpPost]
+        public async Task<IActionResult> CriarProduto(Produto produto)
+        {
+
+            return Ok(await this._produtoService.criar_produto(produto));
+        }
+        
+        
     }
 }

@@ -13,9 +13,16 @@ namespace agicommerce_api.Services
         {
             _database = database;
         }
-        public async Task<List<Produto>> ListaProdutos()
+        public async Task<List<Produto>> listar_produtos()
         {
             return await _database.Produtos.ToListAsync();
+        }
+        
+        public async Task<Produto> criar_produto(Produto produto)
+        {
+            _database.Produtos.Add(produto);
+            await _database.SaveChangesAsync();
+            return produto;
         }
     }
 }
