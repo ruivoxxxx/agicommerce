@@ -33,6 +33,19 @@ namespace agicommerce_api.Services
             await _database.SaveChangesAsync();
             return produto;
         }
+         public async Task<Produto> atualizar_produto(Guid id, Produto produtoAtualizado)
+        {
+            var produto = await _database.Produtos.FirstOrDefaultAsync(p => p.Id == id);
+            if (produto == null)
+            {
+                throw new KeyNotFoundException("Produto não encontrado!");
+            }
+            produto.Nome = produtoAtualizado.Nome;
+            produto.Descricao = produtoAtualizado.Descricao;
+            produto.Preco = produtoAtualizado.Preco;
+            await _database.SaveChangesAsync();
+            return produto;
+        }
        
         
     }

@@ -30,7 +30,11 @@ namespace agicommerce_api.Controllers
 
             return Ok(await this._produtoService.criar_produto(produto));
         }
-        
+        [HttpPut("{id}")]
+        public async Task<IActionResult> AtualizarProduto(Guid id, Produto produto)
+        {
+            return Ok(await this._produtoService.atualizar_produto(id, produto));
+        }
         
     
 }
