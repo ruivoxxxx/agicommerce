@@ -19,14 +19,15 @@ Passo 1: Clonar e Acessar
 Abra o terminal e clone o repositório (ou baixe os arquivos):
 
 
-
 git clone https://github.com/ruivoxxxx/agicommerce
-cd agicommerce-api
+
+
 
 Passo 2: Restaurar Dependências
 Baixe os pacotes do NuGet necessários (EF Core, Swagger, etc):
 
 dotnet restore
+
 
 
 Passo 3: Configurar o Banco de Dados
@@ -36,9 +37,12 @@ dotnet ef database update
 Isso criará automaticamente o arquivo ecommerce.db na raiz do projeto.
 
 
+
 Passo 4: Executar a API
 Inicie o servidor local
 dotnet run
+
+
 
 Passo 5: Testar (Swagger)
 Para testar as rotas, abra o navegador no endereço mostrado no terminal adicionando /swagger ao final.
