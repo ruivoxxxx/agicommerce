@@ -16,38 +16,33 @@ Ter o .NET 8 SDK instalado.
 Um editor de código (VS Code ou Visual Studio).
 
 Passo 1: Clonar e Acessar
-Abra o terminal e clone o repositório (ou baixe os arquivos):
-
-
-git clone https://github.com/ruivoxxxx/agicommerce
-
+*Abra o terminal e clone o repositório:
+git clone https://github.com/ruivoxxxx/agicommerce*
 
 
 Passo 2: Restaurar Dependências
-Baixe os pacotes do NuGet necessários (EF Core, Swagger, etc):
-
-dotnet restore
+*Baixe os pacotes do NuGet necessários (EF Core, Swagger, etc):
+dotnet restore*
 
 
 
 Passo 3: Configurar o Banco de Dados
-Como estamos usando SQLite e Migrations, precisamos criar o arquivo do banco de dados baseando-se no código atual. Execute:
+*Como estamos usando SQLite e Migrations, precisamos criar o arquivo do banco de dados baseando-se no código atual. Execute:
+dotnet ef database update*
 
-dotnet ef database update
 Isso criará automaticamente o arquivo ecommerce.db na raiz do projeto.
 
 
-
 Passo 4: Executar a API
-Inicie o servidor local
-dotnet run
+*Inicie o servidor local
+dotnet run*
 
 
 
 Passo 5: Testar (Swagger)
-Para testar as rotas, abra o navegador no endereço mostrado no terminal adicionando /swagger ao final.
+*Para testar as rotas, abra o navegador no endereço mostrado no terminal adicionando /swagger ao final.
+No Swagger estará documentado as rotas da API e poderão ser testadas.*
 
-Lá você poderá testar
 
 POST /api/produtos: Cadastrar um novo produto.
 GET /api/produtos: Listar todos os produtos.
