@@ -1,12 +1,12 @@
  # Agicommerce API 
 
 
-**API RESTful desenvolvida em .NET 8 para gerenciar o backend da plataforma de e-commerce Agicommerce. 
-Este projeto serve dados para o frontend em React, implementando operações de CRUD completas com validações e persistência de dados.**
+### API RESTful desenvolvida em .NET 8 para gerenciar o backend da plataforma de e-commerce Agicommerce. 
+Este projeto serve dados para o frontend em React, implementando operações de CRUD completas com validações e persistência de dados.
 
 
 
-# Instalação e Execução: 
+## Instalação e Execução: 
 
 Siga este passo a passo para rodar a API na sua máquina local.
 
@@ -16,39 +16,52 @@ Ter o .NET 8 SDK instalado.
 Um editor de código (VS Code ou Visual Studio).
 
 Passo 1: Clonar e Acessar
+```bash
 *Abra o terminal e clone o repositório:
 git clone https://github.com/ruivoxxxx/agicommerce*
+```
 
 
-Passo 2: Restaurar Dependências
-*Baixe os pacotes do NuGet necessários (EF Core, Swagger, etc):
-dotnet restore*
+Passo 2: Restaurar Dependências  
+
+Baixe os pacotes do NuGet necessários (EF Core, Swagger, etc):
+```bash
+dotnet restore
+```
 
 
+Passo 3: Configurar o Banco de Dados  
 
-Passo 3: Configurar o Banco de Dados
-*Como estamos usando SQLite e Migrations, precisamos criar o arquivo do banco de dados baseando-se no código atual. Execute:
-dotnet ef database update*
+Como estamos usando SQLite e Migrations, precisamos criar o arquivo do banco de dados baseando-se no código atual. Execute:
+dotnet ef database update  
 
 Isso criará automaticamente o arquivo ecommerce.db na raiz do projeto.
 
 
-Passo 4: Executar a API
-*Inicie o servidor local
-dotnet run*
+Passo 4: Executar a API  
+
+Inicie o servidor local
+```bash
+dotnet run
+```
 
 
+Passo 5: Testar (Swagger)  
 
-Passo 5: Testar (Swagger)
-*Para testar as rotas, abra o navegador no endereço mostrado no terminal adicionando /swagger ao final.
-No Swagger estará documentado as rotas da API e poderão ser testadas.*
+Para testar as rotas, abra o navegador no endereço mostrado no terminal adicionando /swagger ao final.
+No Swagger estará documentado as rotas da API e poderão ser testadas.
 
+```bash
+POST /api/produtos: Cadastrar um novo produto.  
 
-POST /api/produtos: Cadastrar um novo produto.
-GET /api/produtos: Listar todos os produtos.
-GET /api/produtos{id}:Lista produto by id.
-PUT /api/produtos/{id}: Atualizar estoque ou preço.
-DELETE /api/produtos/{id}: Remover um produto.
+GET /api/produtos: Listar todos os produtos.  
+
+GET /api/produtos{id}:Lista produto by id.  
+
+PUT /api/produtos/{id}: Atualizar estoque ou preço.  
+
+DELETE /api/produtos/{id}: Remover um produto.  
+```
 
 
 
@@ -56,12 +69,18 @@ DELETE /api/produtos/{id}: Remover um produto.
  
 # Tecnologias Utilizadas
 
-.NET 8.0 (LTS)
-ASP.NET Core Web API
-Entity Framework Core 8.0
-SQLite 
-Swagger UI 
-Data Annotations
+.NET 8.0 (LTS)  
+
+ASP.NET Core Web API  
+
+Entity Framework Core 8.0  
+
+SQLite   
+
+Swagger UI  
+
+Data Annotations  
+
 
 
 
@@ -72,30 +91,44 @@ A arquitetura segue o padrão de camadas para garantir a separação de responsa
 
 /agicommerce-api
 
- Controllers/     Recebem as requisições HTTP (GET, POST, etc.)
- Models/          Classes de domínio e validações (ex: Produto.cs)
- Data/            Contexto do Banco de Dados (AppDbContext)
- Services/        Regras de negócio (Intermediário entre Controller e Banco)
- Migrations/      Histórico de versionamento do Schema do banco
- appsettings.json  Configuração da ConnectionString do SQLite
- Program.cs       Configuração de Injeção de Dependência e Middleware
+ Controllers/     Recebem as requisições HTTP (GET, POST, etc.)  
+ 
+ Models/          Classes de domínio e validações (ex: Produto.cs)  
+ 
+ Data/            Contexto do Banco de Dados (AppDbContext)  
+ 
+ Services/        Regras de negócio (Intermediário entre Controller e Banco)  
+ 
+ Migrations/      Histórico de versionamento do Schema do banco  
+ 
+ appsettings.json  Configuração da ConnectionString do SQLite  
+ 
+ Program.cs       Configuração de Injeção de Dependência e Middleware  
+ 
 
 
 
 
 # Decisões Técnicas
 
-1- Modelagem e Validação 
-Optei por utilizar Data Annotations ([Required], [MaxLength], [Range]) diretamente na classe Produto.
-Centraliza a regra de negócio e a definição da tabela do banco no mesmo lugar. 
+1- Modelagem e Validação   
 
-2. Camada de Services
-Em vez de colocar a lógica dentro do Controller, criei uma pasta Services,
-para desacoplar. O Controller fica apenas com a responsabilidade dos protocolos HTTP (status 200, 404) 
-o Services ficam responsaveis pela parte da lógica.
+Optei por utilizar Data Annotations ([Required], [MaxLength], [Range]) diretamente na classe Produto.  
 
-3. Banco de Dados SQLite
-Escolhido pela facilidade de criação do banco e rapidez, por conta de ser um arquivo local e não necessitar de instalação de servidor. 
+Centraliza a regra de negócio e a definição da tabela do banco no mesmo lugar.  
+
+2- Camada de Services
+  
+Em vez de colocar a lógica dentro do Controller, criei uma pasta Services,  
+
+para desacoplar. O Controller fica apenas com a responsabilidade dos protocolos HTTP (status 200, 404)  
+
+o Services ficam responsaveis pela parte da lógica.  
+
+3- Banco de Dados SQLite
+
+Escolhido pela facilidade de criação do banco e rapidez, por conta de ser um arquivo local e não necessitar de instalação de servidor.  
+
 
 
 
