@@ -145,6 +145,18 @@ Foi necessário ajustar os Middlewares para garantir que o Swagger funcionasse c
 
 
 
+Melhorias Futuras (O que faria com mais tempo)
+
+Com mais tempo de desenvolvimento, o foco seria expandir a API para suportar um fluxo completo de e-commerce real:
+
+1- **Autenticação e Autorização (Identity + JWT):**
+  Implementar o **ASP.NET Core Identity** para gerenciar usuários e roles (Admin vs Cliente). Proteção de rotas administrativas com Tokens JWT (Bearer Authentication), garantindo que apenas admins possam criar/editar produtos.
+
+2- **Persistência de Carrinho e Pedidos:**
+  Modelar novas tabelas no banco (`CartItems`, `Orders`, `OrderItems`) para que o carrinho do usuário não seja perdido ao fechar o navegador e para manter um histórico de compras.
+
+3- **Serviço de E-mail (SMTP):**
+  Integrar um serviço de envio de e-mails (como SendGrid ou SMTP básico) para enviar confirmações de pedido, boas-vindas ao cadastrar e recuperação de senha.
 
 
 
