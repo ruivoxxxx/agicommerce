@@ -1,7 +1,7 @@
  Agicommerce API 
 
-API RESTful desenvolvida em .NET 8 para gerenciar o backend da plataforma de e-commerce Agicommerce. 
-Este projeto serve dados para o frontend em React, implementando operações de CRUD completas com validações e persistência de dados.
+**API RESTful desenvolvida em .NET 8 para gerenciar o backend da plataforma de e-commerce Agicommerce. 
+Este projeto serve dados para o frontend em React, implementando operações de CRUD completas com validações e persistência de dados.**
 
 Instalação e Execução: 
 
