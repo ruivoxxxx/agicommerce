@@ -1,9 +1,12 @@
- Agicommerce API 
+ *Agicommerce API* 
+
 
 **API RESTful desenvolvida em .NET 8 para gerenciar o backend da plataforma de e-commerce Agicommerce. 
 Este projeto serve dados para o frontend em React, implementando operações de CRUD completas com validações e persistência de dados.**
 
-Instalação e Execução: 
+
+
+**Instalação e Execução:** 
 
 Siga este passo a passo para rodar a API na sua máquina local.
 
@@ -48,8 +51,11 @@ GET /api/produtos{id}:Lista produto by id.
 PUT /api/produtos/{id}: Atualizar estoque ou preço.
 DELETE /api/produtos/{id}: Remover um produto.
 
+
+
+
  
-  Tecnologias Utilizadas
+**Tecnologias Utilizadas**
 
 .NET 8.0 (LTS)
 ASP.NET Core Web API
@@ -73,7 +79,10 @@ A arquitetura segue o padrão de camadas para garantir a separação de responsa
  appsettings.json  Configuração da ConnectionString do SQLite
  Program.cs       Configuração de Injeção de Dependência e Middleware
 
-Decisões Técnicas:
+
+
+
+**Decisões Técnicas**
 
 1- Modelagem e Validação 
 Optei por utilizar Data Annotations ([Required], [MaxLength], [Range]) diretamente na classe Produto.
@@ -87,7 +96,12 @@ o Services ficam responsaveis pela parte da lógica.
 3. Banco de Dados SQLite
 Escolhido pela facilidade de criação do banco e rapidez, por conta de ser um arquivo local e não necessitar de instalação de servidor. 
 
-Desafios durante desenvolvimento:
+
+
+
+**Desafios durante desenvolvimento**
+
+
 1- Compreender a estrutura do Program.cs e configurar corretamente o pipeline de execução da aplicação. 
 Foi necessário ajustar os Middlewares para garantir que o Swagger funcionasse corretamente para a documentação e que as rotas HTTP fossem mapeadas como esperado.
 
