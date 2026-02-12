@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace agicommerce_api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("/api/produtos")]
     public class ProdutoController : ControllerBase
     {
         private readonly ProdutoService _produtoService;
@@ -13,9 +13,10 @@ namespace agicommerce_api.Controllers
             _produtoService = produtoService;
         }
         [HttpGet]
-        public async Task<IActionResult> GetProdutos()
+        public async Task<IActionResult> GetProdutos([FromQuery] string? categoria,
+    [FromQuery] string? ordenar , [FromQuery] string? nome)
         {
-            return Ok(await this._produtoService.listar_produtos());
+            return Ok(await this._produtoService.listar_produtos(categoria, ordenar, nome));
         }
          [HttpGet("{id}")]
         public async Task<IActionResult> GetProdutoById(Guid id)

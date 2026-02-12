@@ -10,10 +10,36 @@ namespace agicommerce_api.Services
         {
             _database = database;
         }
-        public async Task<List<Produto>> listar_produtos()
-        {
-            return await _database.Produtos.ToListAsync();
-        }
+        public async Task<List<Produto>> listar_produtos(
+        string? categoria,
+        string? ordenar,
+        string? nome)
+{
+    var query = _database.Produtos.AsQueryable();
+
+    
+    if (!string.IsNullOrEmpty(categoria))
+    {
+        query = query.Where(p => p.Categoria == categoria);
+    }
+
+    
+    if (!string.IsNullOrEmpty(ordenar))
+    {
+        if (ordenar == "recentes")
+            query = query.OrderByDescending(p => p.DataCadastro);
+
+        if (ordenar == "antigos")
+            query = query.OrderBy(p => p.DataCadastro);
+    }
+    if(!string.IsNullOrEmpty(nome))
+    {
+        query = query.Where(p => p.Nome.Contains(nome));
+    }
+
+    return await query.ToListAsync();
+}
+
         
         public async Task<Produto> listar_produto_por_id(Guid id)
         {
